@@ -1,0 +1,197 @@
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Aetheris: Quantum-ready cryptographic infrastructure for the post-quantum era."
+    />
+    <title>Aetheris | Post-Quantum Infrastructure</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas id="quantum-mesh" aria-hidden="true"></canvas>
+
+    <header class="nav-glass" role="banner">
+      <div class="nav-container">
+        <a href="/" class="logo-mark" aria-label="Aetheris Home">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+          </svg>
+          <span>Aetheris</span>
+        </a>
+        <nav role="navigation" aria-label="Main">
+          <ul>
+            <li><a href="#architecture">Architecture</a></li>
+            <li><a href="#security">Security</a></li>
+            <li><a href="#docs">Documentation</a></li>
+          </ul>
+        </nav>
+        <button
+          class="cta-primary"
+          id="initiate-handshake"
+          aria-haspopup="dialog"
+        >
+          Initialize Node
+        </button>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-content">
+          <p class="eyebrow">Post-Quantum Cryptography</p>
+          <h1 id="hero-heading">
+            Infrastructure built for the
+            <span class="text-gradient">post-quantum</span>
+            epoch.
+          </h1>
+          <p class="subheadline">
+            Aetheris provides military-grade, lattice-based cryptographic
+            primitives. Zero-knowledge proofs, executed at the edge, with
+            sub-millisecond latency.
+          </p>
+          <div class="hero-actions">
+            <button class="cta-primary" id="deploy-cluster">
+              Deploy Cluster
+            </button>
+            <button class="cta-ghost" id="read-whitepaper">
+              Read Whitepaper
+            </button>
+          </div>
+        </div>
+        <div class="hero-metrics" aria-label="System metrics">
+          <div class="metric-card">
+            <span class="metric-value" id="metric-latency">0.42</span>
+            <span class="metric-unit">ms</span>
+            <span class="metric-label">Avg Handshake</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-value" id="metric-throughput">14.8</span>
+            <span class="metric-unit">M/s</span>
+            <span class="metric-label">Key Generations</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-value" id="metric-uptime">99.999</span>
+            <span class="metric-unit">%</span>
+            <span class="metric-label">Network Uptime</span>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="architecture"
+        class="feature-grid"
+        aria-labelledby="arch-heading"
+      >
+        <h2 id="arch-heading" class="sr-only">Core Architecture</h2>
+        <article class="feature-card">
+          <div class="card-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+          </div>
+          <h3>Lattice-Based Primitives</h3>
+          <p>
+            Transitioning from RSA and ECC to CRYSTALS-Kyber and Dilithium.
+            Future-proofing your data against Shor's algorithm.
+          </p>
+        </article>
+        <article class="feature-card">
+          <div class="card-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path
+                d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+              />
+            </svg>
+          </div>
+          <h3>Edge Execution</h3>
+          <p>
+            Zero-knowledge proofs computed at the network edge. Your private
+            keys never leave your local enclave.
+          </p>
+        </article>
+        <article class="feature-card">
+          <div class="card-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <polyline points="16 18 22 12 16 6" />
+              <polyline points="8 6 2 12 8 18" />
+            </svg>
+          </div>
+          <h3>Sub-Millisecond RPC</h3>
+          <p>
+            Custom binary protocol over QUIC. Bypassing HTTP/2 overhead for raw,
+            unadulterated throughput.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <dialog
+      id="handshake-modal"
+      class="modal-glass"
+      aria-labelledby="modal-title"
+    >
+      <form method="dialog" class="modal-content">
+        <h2 id="modal-title">Initialize Secure Handshake</h2>
+        <p>
+          Enter your enclave credentials to generate a post-quantum session key.
+        </p>
+        <div class="input-group">
+          <label for="enclave-id">Enclave ID</label>
+          <input
+            type="text"
+            id="enclave-id"
+            required
+            autocomplete="off"
+            spellcheck="false"
+          />
+        </div>
+        <div class="input-group">
+          <label for="auth-token">Auth Token</label>
+          <input
+            type="password"
+            id="auth-token"
+            required
+            autocomplete="current-password"
+          />
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="cta-ghost" value="cancel">Abort</button>
+          <button type="submit" class="cta-primary" value="confirm">
+            Generate Key
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
